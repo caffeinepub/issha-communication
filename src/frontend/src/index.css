@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.98 0.005 280;
+    --foreground: 0.12 0.04 270;
+
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.04 270;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.04 270;
+
+    --primary: 0.52 0.26 264;
+    --primary-foreground: 1 0 0;
+
+    --accent: 0.65 0.28 330;
+    --accent-foreground: 1 0 0;
+
+    --secondary: 0.94 0.02 280;
+    --secondary-foreground: 0.18 0.06 264;
+
+    --muted: 0.94 0.015 280;
+    --muted-foreground: 0.5 0.04 270;
+
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.88 0.02 270;
+    --input: 0.88 0.02 270;
+    --ring: 0.52 0.26 264;
+
+    --radius: 1rem;
+
+    /* Vibrant brand tokens */
+    --c-blue: 0.58 0.26 264;
+    --c-purple: 0.52 0.28 296;
+    --c-pink: 0.62 0.28 330;
+    --c-orange: 0.72 0.22 38;
+    --c-teal: 0.62 0.18 185;
+    --c-dark: 0.1 0.04 270;
+    --c-darker: 0.08 0.03 270;
+    --c-mid: 0.18 0.06 268;
+    --c-surface: 0.97 0.008 280;
+
+    --chart-1: 0.58 0.26 264;
+    --chart-2: 0.52 0.28 296;
+    --chart-3: 0.62 0.28 330;
+    --chart-4: 0.72 0.22 38;
+    --chart-5: 0.62 0.18 185;
+
+    --sidebar: 0.1 0.04 270;
+    --sidebar-foreground: 0.92 0.01 270;
+    --sidebar-primary: 0.58 0.26 264;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.18 0.06 268;
+    --sidebar-accent-foreground: 0.92 0.01 270;
+    --sidebar-border: 0.24 0.06 268;
+    --sidebar-ring: 0.58 0.26 264;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+@layer utilities {
+  /* ── Color text helpers ── */
+  .text-c-blue {
+    color: oklch(var(--c-blue));
+  }
+  .text-c-purple {
+    color: oklch(var(--c-purple));
+  }
+  .text-c-pink {
+    color: oklch(var(--c-pink));
+  }
+  .text-c-orange {
+    color: oklch(var(--c-orange));
+  }
+  .text-c-teal {
+    color: oklch(var(--c-teal));
+  }
+  .text-c-dark {
+    color: oklch(var(--c-dark));
+  }
+
+  /* ── Background helpers ── */
+  .bg-c-blue {
+    background-color: oklch(var(--c-blue));
+  }
+  .bg-c-purple {
+    background-color: oklch(var(--c-purple));
+  }
+  .bg-c-pink {
+    background-color: oklch(var(--c-pink));
+  }
+  .bg-c-orange {
+    background-color: oklch(var(--c-orange));
+  }
+  .bg-c-teal {
+    background-color: oklch(var(--c-teal));
+  }
+  .bg-c-dark {
+    background-color: oklch(var(--c-dark));
+  }
+  .bg-c-darker {
+    background-color: oklch(var(--c-darker));
+  }
+  .bg-c-mid {
+    background-color: oklch(var(--c-mid));
+  }
+  .bg-c-surface {
+    background-color: oklch(var(--c-surface));
+  }
+
+  /* ── Gradient text ── */
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--c-blue)),
+      oklch(var(--c-purple)),
+      oklch(var(--c-pink))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-warm {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--c-orange)),
+      oklch(var(--c-pink))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-cool {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--c-teal)),
+      oklch(var(--c-blue))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Glow effects ── */
+  .glow-blue {
+    box-shadow: 0 0 28px oklch(var(--c-blue) / 0.5), 0 0 56px
+      oklch(var(--c-blue) / 0.2);
+  }
+  .glow-pink {
+    box-shadow: 0 0 28px oklch(var(--c-pink) / 0.5), 0 0 56px
+      oklch(var(--c-pink) / 0.2);
+  }
+  .glow-orange {
+    box-shadow: 0 0 28px oklch(var(--c-orange) / 0.5);
+  }
+
+  /* ── Card hover ── */
+  .card-lift {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card-lift:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 48px oklch(var(--c-dark) / 0.18);
+  }
+
+  /* ── Image zoom on hover ── */
+  .img-zoom {
+    overflow: hidden;
+  }
+  .img-zoom img {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .img-zoom:hover img {
+    transform: scale(1.08);
+  }
+
+  /* ── Section gradient backgrounds ── */
+  .section-services {
+    background: linear-gradient(
+      160deg,
+      oklch(0.97 0.01 280) 0%,
+      oklch(0.95 0.02 290) 100%
+    );
+  }
+
+  .section-accessories {
+    background: linear-gradient(
+      160deg,
+      oklch(0.1 0.04 270) 0%,
+      oklch(0.14 0.06 280) 50%,
+      oklch(0.1 0.05 290) 100%
+    );
+  }
+
+  .section-about {
+    background: linear-gradient(
+        135deg,
+        oklch(0.62 0.18 185 / 0.08) 0%,
+        oklch(0.97 0.005 280) 50%,
+        oklch(0.58 0.26 264 / 0.06) 100%
+      ), oklch(0.98 0.005 280);
+  }
+
+  .section-contact {
+    background: linear-gradient(
+      160deg,
+      oklch(0.52 0.28 296) 0%,
+      oklch(0.42 0.26 270) 50%,
+      oklch(0.62 0.28 330) 100%
+    );
+  }
+}
